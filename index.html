@@ -45,16 +45,12 @@
       }
 
       var handlerMouseOver = throttleHelp(function(event) {
-        console.log(event);
         event.preventDefault();
         var target = event.target;
         var box = getBox();
-
         var parentPosition = this.getBoundingClientRect();
-
         box.style.left = event.clientX - parentPosition.left - 25;
         box.style.top = event.clientY - parentPosition.top - 25;
-
         this.appendChild(box);
       }.bind( document.getElementById("container") ));
 
