@@ -35,17 +35,22 @@
         return getBox();
       }
 
-      function throttleHelp(fn) {
+      function debounceHelp(fn) {
         var id;
+        var time = new Date();
         return function(args) {
-          if (id) {
-            clearTimeout(id)
-          } 
-          id = setTimeout(fn, 10, args);
+          clearTimeout(id)
+          var currentTime = new Date();
+          if (currentTime - time > 20) {
+            fn(args);
+            time = currentTime;
+          } else {
+            id = setTimeout(fn, 20, args);
+          }
         }
       }
 
-      var handlerMouseOver = throttleHelp(function(event) {
+      var handlerMouseOver = debounceHelp(function(event) {
         event.preventDefault();
         var target = event.target;
         var box = getBox();
