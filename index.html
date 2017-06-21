@@ -56,7 +56,7 @@
         var innerImageMoveLeft =  - (event.clientX - parentPosition.left - 25);
         var innerImageMoveTop = - (event.clientY - parentPosition.top - 25);
 
-        box.innerHTML = '<img width="100" height="100" style="transform: translateX(' + innerImageMoveLeft + 'px) translateY(' + innerImageMoveTop + 'px);" src="https://mdn.mozillademos.org/files/5405/gallery_4.jpg" />';
+        box.innerHTML = '<img width="100" height="100" style="transform: translateX(' + innerImageMoveLeft + 'px) translateY(' + innerImageMoveTop + 'px);" src="https://mdn.mozillademos.org/files/5405/gallery_4.jpg" ondragstart="return false;"/>';
 
         this.appendChild(box);
 
